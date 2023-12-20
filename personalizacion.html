@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personalizacion</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="Bootstrap/css/bootstrap.css">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/personalizacioin.css">
+
+</head>
+
+<body class="grid-contenido">
+    <header class="cabe">
+        <nav class="navbar navbar-expand-lg navbar-dark" id="prueba">
+            <div class="container-fluid">
+
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ">
+                        <li class="nav-item">
+                            <a class="nav-link active " href="index.html">Inicio</a>
+                        </li>
+                        <li class="nav-item" id="venta-item">
+                            <a class="nav-link active" aria-current="page" href="#">Venta</a>
+                            <!-- submenu -->
+                            <div class="submenu">
+                                <p>CATEGORÍAS:</p>
+                                <ul>
+                                    <li><a href="aretes.html">• Aretes</a></li>
+                                    <li><a href="anillos.html">• Anillos</a></li>
+                                    <li><a href="collares.html">• Collares</a></li>
+                                    <li><a href="pulseras.html">• Pulseras</a></li>
+                                </ul>
+                            </div>
+
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active " href="">Personalizacion</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active " href="">Nosotros</a>
+                            <div class="submenu">
+                                <ul>
+                                    <li><a href="contactenos.html">• Contáctanos</a></li>
+                                    <li><a href="nosotrosh.html">• Nuestra Historia</a></li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active " href="produc.html">Mis Pedidos</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="cuadro-logotipo">
+                    <a class="logotipo" href="index.html">Carito</a>
+                </div>
+                <script>
+                    document.addEventListener("DOMContentLoaded", function () {
+                        // Verificar si existe un dato en el localStorage
+                        var nombreUsuario = localStorage.getItem('nombreUsuario');
+
+                        // Obtener el elemento del enlace
+                        var enlaceLogin = document.getElementById('enlaceLogin');
+                        // Obtener el elemento del texto dentro del enlace
+                        var usuarioLogin = document.getElementById('usuarioLogin');
+                        // Obtener el elemento del submenú para el login
+                        var loginOptions = document.querySelector('.login-options');
+                        // Obtener el elemento de la opción "Cerrar Sesión"
+                        var cerrarSesionOption = document.getElementById('cerrarSesionOption');
+
+                        // Verificar y actualizar el texto del enlace
+                        if (nombreUsuario) {
+                            usuarioLogin.textContent = (" ") + nombreUsuario;
+                        } else {
+                            usuarioLogin.textContent = ' Loguearme';
+                            loginOptions.style.display = 'none'; // Ocultar submenú si no hay nombre de usuario
+                        }
+
+                        // Agregar un evento de clic a la opción "Cerrar Sesión"
+                        cerrarSesionOption.addEventListener('click', function (event) {
+                            event.preventDefault(); // Evitar que el enlace redirija
+
+                            // Limpiar el localStorage y ocultar el submenú
+                            localStorage.removeItem('nombreUsuario');
+                            localStorage.removeItem('idUsuario');
+                            loginOptions.style.display = 'none';
+                            location.reload();
+                        });
+                    });
+
+                </script>
+                <li class="d-flex" id="login">
+                    <div class="cuadro-login">
+                        <a href="login.html" id="enlaceLogin" class="nav-link active "><svg viewBox="0 0 24 24"
+                                width="50px" height="50px" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                                <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                                <g id="SVGRepo_iconCarrier">
+                                    <circle cx="12" cy="6" r="4" fill="#000000"></circle>
+                                    <ellipse opacity="0.5" cx="12" cy="17" rx="7" ry="4" fill="#000000"></ellipse>
+                                </g>
+                            </svg>
+                            <span id="usuarioLogin"></span></a>
+                        <!-- Nuevo submenú para el login -->
+                        <div class="login-options">
+                            <ul>
+                                <li><a href="#">• Perfil</a></li>
+                                <li id="cerrarSesionOption"><a href="#">• Cerrar Sesión</a></li>
+                            </ul>
+                        </div>
+                        <!-- <li><a href="#">• Configuración</a></li> -->
+                    </div>
+                </li>
+            </div>
+        </nav>
+    </header>
+
+
+    <article class="cuer">
+        <div class="container">
+            <h2>PERSONALIZA TU JOYA COMO DESEES</h2>
+            <br><br><br>
+            <p>JOYERÍA / CATEGORÍA / PERSONALIZAR</p>
+            <br>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="inputEmail4">Nombres*</label>
+                    <input type="text" class="form-control col-md-10" id="nombres" placeholder="" required>
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="inputPassword4">Apellidos*</label>
+                    <input type="text" class="form-control col-md-10" id="apellidos" placeholder="" required>
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="inputEmail4">Correo Electronico*</label>
+                    <input type="text" class="form-control col-md-10" id="correo" placeholder="" required>
+                </div>
+                <div class="form-group col-md-3">
+                    <label for="inputPassword4">Telefono*</label>
+                    <input type="tel" class="form-control col-md-10" id="telefono" placeholder="" required>
+                </div>
+                <div class="form-group col-md-3">
+                    <label for="inputPassword4">Fecha de Nacimiento*</label>
+                    <input type="date" class="form-control col-md-8" id="fechaNacimiento" placeholder="" required>
+                </div>
+                <div class="form-group col-md-3">
+                    <label for="inputPassword4">Provincia*</label>
+                    <input type="text" class="form-control col-md-10" id="provincia" placeholder="" required>
+                </div>
+                <div class="form-group col-md-3">
+                    <label for="inputPassword4">Distrito*</label>
+                    <input type="text" class="form-control col-md-8" id="distrito" placeholder="" required>
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="inputPassword4">Dirección*</label>
+                    <input type="text" class="form-control col-md-10" id="direccion" placeholder="" required>
+                </div>
+
+            </div>
+            <div class="personalizalo">
+
+                <p>
+                    ¿Dispone de un diseño o imagen de la joya que desea que fabriquemos?*
+                    <br><br>
+                    <input type="radio" name="grupo1" id="bot">
+                    <label>Si  </label>
+                    <br>
+                    <input type="radio" name="grupo1" id="bot">
+                    <label>No</label>
+                </p>
+                <p class="leve">
+                    Tipo de Joya*
+                <div class="tip">
+                    <select id="tipoJoya" class="form-control col-md-4" onchange="carga()">
+                        <option value="">Seleccione una opción</option>
+                        <option value="anillo">Anillo</option>
+                        <option value="pendiente">Arete</option>
+                        <option value="collar">Collar</option>
+                        <option value="pulsera">Pulsera</option>
+                    </select><br>
+                    <p id="mensaje">  </p>
+                    <div id="miCuadroTexto" style="display: none;">
+                        <label for="texto" id="Mens"></label>
+                        <input type="text" id="cuadroTexto" name="cuadroTexto" class="form-control col-md-5"
+                            placeholder="Ingrese dato...">
+
+                    </div>
+                </div>
+                </p>
+            </div>
+            <p>
+                Cantidad de Joyas*
+                <input type="number" class="form-control col-md-2" id="cantidadJoya" value="1" min="1">
+            </p>
+            <p>
+                Material*
+                <select class="form-control col-md-4" id="materialJoya" required>
+                    <option>Seleccione una opción</option>
+                    <option>Plata de Ley 925</option>
+                    <option>Oro de Ley 18k</option>
+                    <option>Oro rosa de Ley 18k</option>
+                    <option>Necesito asesoramiento</option>
+                </select>
+            </p>
+            <div class="precios">
+                <p>
+                    ¿Quieres incluir alguna pueda preciosa?*
+                    <br><br>
+                    <label>
+                        <input type="radio" name="grupo2" id="roca" onclick="mostrarPiedras()">
+                        Si  </label>
+                    <br>
+                    <label>
+                        <input type="radio" name="grupo2" id="piedras2" onclick="mostrarPiedras()">
+                        No</label>
+                </p>
+                <div id="prueba1" style="display:none;">
+                    <form name="form1" method="post" action="">
+                        <table width="700px" height="173">
+                            <tr>
+                                <td height="35" width="15%">Amatista</td>
+                                <td width="15%">Rubí</td>
+                                <td width="15%">Perla Mar del Sur</td>
+                                <td width="15%">Zafiro</td>
+                                <td width="15%">Diamante</td>
+                            </tr>
+                            <tr>
+                                <td height="100"><img src="img/piedras/piedra1.png" alt=""></td>
+                                <td><img src="img/piedras/piedra2.png" alt=""></td>
+                                <td><img src="img/piedras/piedra3.png" alt=""></td>
+                                <td><img src="img/piedras/piedra4.png" alt=""></td>
+                                <td><img src="img/piedras/piedra5.png" alt=""></td>
+                            </tr>
+                            <tr>
+                                <td height="20"><input type="checkbox" name="chkPiedra" id="chkAmatista"
+                                        value="Amatista">
+                                    <label for="chkAmatista"></label>
+                                </td>
+                                <td><input type="checkbox" name="chkPiedra" id="chkRubí" value="rubi">
+                                    <label for="chkRubí"></label>
+                                </td>
+                                <td><input type="checkbox" name="chkPiedra" id="chkPerla" value="perla">
+                                    <label for="chkPerla"></label>
+                                </td>
+                                <td><input type="checkbox" name="chkPiedra" id="chkZafiro" value="zafiro">
+                                    <label for="chkZafiro"></label>
+                                </td>
+                                <td><input type="checkbox" name="chkPiedra" id="chkDiamante" value="diamante">
+                                    <label for="chkDiamante"></label>
+                                </td>
+                            </tr>
+                        </table>
+                    </form>
+                </div>
+            </div>
+            <p>
+                <br>
+                ¿Para cuando deseas la joya?*<br>
+                <br>
+                <input type="date" class="form-control col-md-2" id="fechaDeseada" placeholder="" required>
+            </p>
+            <p>
+                Por último, para ayudarnos a diseñar tu joya, describela con exactitud. (medidas, numero de piedras...)
+                <br><br>
+                <textarea class="form-control col-md-6" id="descripcionJoya" placeholder="Ingresa detalles *"
+                    data-sb-validations="required"></textarea>
+            </p>
+            <br>
+            <p>
+                <br>
+                Queremos que tu joya sea exactamente como la imaginas. ¿Quieres ver una vista previa animada del diseño
+                <br>
+                antes de confirmar tu pedido? ¡Te ayudará a visualizarla mejor!
+            </p>
+            <br><br><br>
+
+
+
+            <button class="btn btn-primary col-md-3" type="submit" id="soli"
+                onclick="enviarPedido()">SOLICITAR</button> <!-- enviarPedido() -->
+            <button class="btn btn-primary col-md-3" type="submit" id="soli" onclick="crearModeloJoya()">VISTA
+                ANIMADA</button>
+            <BR><BR><br>
+            <br>
+
+            <!-- <button class="btn btn-primary col-md-3" type="submit" id="otro" onclick="crearModeloJoya()">Visualizar Modelo</button> -->
+
+            <div class="vistaPrevia">
+                <div id="vistaPrevia-container">
+
+                </div>
+            </div>
+            <BR><BR><BR>
+            <br><br><br><br>
+        </div>
+
+    </article>
+
+
+    <!-- script para guardar los datos del nuevo pedido en la base de data-sb-validations -->
+
+    <script>
+
+        let imagenmodelo;
+
+        function crearModeloJoya() {
+            var materialDropdown = document.getElementById('materialJoya');
+            var tipoJoya = document.getElementById('tipoJoya').value;
+            var checkboxes = document.getElementsByName('chkPiedra');
+            var piedrasSeleccionadas = [];
+            var material = document.getElementById('materialJoya').value;
+
+            for (var i = 0; i < checkboxes.length; i++) {
+                if (checkboxes[i].checked) {
+                    piedrasSeleccionadas.push(checkboxes[i].value);
+                }
+            }
+            //variable    
+            var piedraPreciosa = piedrasSeleccionadas.join(', ');
+
+            // Obtener el valor seleccionado del dropdown de materiales Val,Ind,Lis
+            var materialSeleccionado = materialDropdown.options[materialDropdown.selectedIndex].value;
+
+            // Asignar el valor correspondiente a materialJoya
+            var materialJoya;
+            switch (materialSeleccionado) {
+                case 'Plata de Ley 925':
+                    materialJoya = 'plata';
+                    break;
+                case 'Oro de Ley 18k':
+                    materialJoya = 'oro';
+                    break;
+                case 'Oro rosa de Ley 18k':
+                    materialJoya = 'oroRosa';
+                    break;
+                case 'Necesito asesoramiento':
+                case 'Seleccione una opción':
+                default:
+                    materialJoya = null;
+                    break;
+            }
+            //obj->propi
+            var pruebaConsola = {
+                "Material": materialJoya,
+                "Tipo": tipoJoya,
+                "Piedra Preciosa": piedraPreciosa
+            }
+            
+            // Realizacion de contenido dinámico
+            var vistaPreviaContainer = document.getElementById('vistaPrevia-container');
+
+            // Crear un elemento div y agregar HTML dinámicamente
+            var nuevoContenido = document.createElement("div");
+            vistaPreviaContainer.innerHTML = '';
+            nuevoContenido.innerHTML = `
+                <div class="vistaPrevia-container-container">
+                    <div class="vistaPrevia-container-imagen">
+                        <img src="./svg/${tipoJoya}-${piedraPreciosa}-${materialJoya}.svg" alt="Imagen del producto">
+                    </div>
+                    <div class="vistaPrevia-container-descripcion">
+                        Descripcion de Tu Joya:
+                        <br>
+                        <br>
+                        Un ${tipoJoya} hecho de ${material} con un ${piedraPreciosa}.
+                    </div>
+                </div>
+            `;
+            
+            // Agregar el nuevo contenido al contenedor
+
+
+            if (!tipoJoya) {
+                alert("Debe elegir un tipo de joya");
+            } else if (!piedraPreciosa) {
+                alert("Debe elegir una piedra preciosa.");
+            } else if (materialJoya == null) {
+                alert("Debe elegir el material de la Joya.")
+            } else if (piedrasSeleccionadas.length > 1) {
+                alert("¡Atención! Has seleccionado más de una piedra preciosa.");
+            } else {
+                vistaPreviaContainer.appendChild(nuevoContenido);
+            }
+
+            imagenmodelo = ("./svg/" + tipoJoya + "-" + piedraPreciosa + "-" + materialJoya + ".svg");
+            // console.log(pruebaConsola);
+        }
+
+        function enviarPedido() {
+            // Obtener los valores del formulario
+            validarFormulario();
+            var nombres = document.getElementById('nombres').value;
+            var apellidos = document.getElementById('apellidos').value;
+            var correo = document.getElementById('correo').value;
+            var telefono = document.getElementById('telefono').value;
+            var fechaNacimiento = document.getElementById('fechaNacimiento').value;
+            var provincia = document.getElementById('provincia').value;
+            var distrito = document.getElementById('distrito').value;
+            var direccion = document.getElementById('direccion').value;
+            // var linkImagen = document.getElementById('linkImagen').value;
+            var tipoJoya = document.getElementById('tipoJoya').value;
+            var cantidadJoya = document.getElementById('cantidadJoya').value;
+            var materialJoya = document.getElementById('materialJoya').value;
+            var descripcionJoya = document.getElementById('descripcionJoya').value;
+            var fechaDeseada = document.getElementById('fechaDeseada').value;
+            var idUsuario = parseInt(localStorage.getItem('idUsuario'));
+
+            //verificación de que hayan subido los datos
+
+            if (!fechaNacimiento) {
+                alert("Por favor, ingresa tu fecha de nacimiento.");
+                return;
+
+            }
+
+            //Calculando todas las fechas
+            var fechaActual = Date.now();
+            var fechaRegistro = new Date(fechaActual);
+            var fechaOptima = new Date(fechaDeseada)
+            var fechaActualObj = new Date(fechaActual);
+
+            var fechaNacimientoObj = new Date(fechaNacimiento);
+            var edad = fechaActualObj.getFullYear() - fechaNacimientoObj.getFullYear();
+            // Sumamos una semana a la fecha actual
+            var fechaAproximada = new Date(fechaActual + 7 * 24 * 60 * 60 * 1000)
+
+            // Obtener todos los checkboxes por su nombre para las piedra preciosas
+            var checkboxes = document.getElementsByName('chkPiedra');
+            var piedrasSeleccionadas = [];
+
+            for (var i = 0; i < checkboxes.length; i++) {
+                if (checkboxes[i].checked) {
+                    piedrasSeleccionadas.push(checkboxes[i].value);
+                }
+            }
+
+            var piedraPreciosa = piedrasSeleccionadas.join(', ')
+
+            //ADICIONALES
+
+            // Verifica si el cumpleaños ya ha pasado este año
+            if (fechaActualObj.getMonth() < fechaNacimientoObj.getMonth() ||
+                (fechaActualObj.getMonth() === fechaNacimientoObj.getMonth() && fechaActualObj.getDate() < fechaNacimientoObj.getDate())) {
+                edad--;
+            }
+
+
+            // Construir el objeto con los datos del formulario
+            var pedidoData = {
+                "nombreCliente": nombres + " " + apellidos,
+                "correoCliente": correo,
+                "telefonoCliente": telefono,
+                "edadCliente": edad,
+                "direccionCliente": "Provincia: " + provincia + "   | Distrito: " + distrito + "   | Direccion: " + direccion,
+                "imagen": imagenmodelo,
+                "tipo": tipoJoya,
+                "cantidad": cantidadJoya,
+                "material": materialJoya,
+                "gema": piedraPreciosa,
+                "fechaSolicitada": fechaOptima.toISOString(),
+                "descripcion": descripcionJoya,
+                "estadoPedido": "En proceso",
+                "fechaRegistro": fechaRegistro.toISOString(),
+                "fechaAproximada": fechaAproximada.toISOString(),
+                "idCliente": idUsuario
+            };
+
+            // console.log(pedidoData);
+
+            // Enviar la solicitud POST al backend
+            fetch('http://localhost:8080/api/carito/pedidos/personalizado', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(pedidoData),
+            })
+                .then(response => response.json())
+                .then(data => {
+                    // Manejar la respuesta del servidor si es necesario
+                    console.log('Respuesta del servidor:', data);
+                    // Redirigir o mostrar un mensaje de éxito, según sea necesario
+                })
+                .catch(error => {
+                    // Manejar errores de la solicitud
+                    console.error('Error al enviar la solicitud:', error);
+                });
+            alert("Se acaba de registrar tu nuevo pedido")
+
+            window.location.href = 'index.html';
+        }
+
+        function validarFormulario() {
+            // Obtener los valores de los campos
+            var nombres = document.getElementById('nombres').value;
+            var apellidos = document.getElementById('apellidos').value;
+            var correo = document.getElementById('correo').value;
+            var telefono = document.getElementById('telefono').value;
+            var fechaNacimiento = document.getElementById('fechaNacimiento').value;
+            var provincia = document.getElementById('provincia').value;
+            var distrito = document.getElementById('distrito').value;
+            var direccion = document.getElementById('direccion').value;
+            var tipoJoya = document.getElementById('tipoJoya').value;
+            var cantidadJoya = document.getElementById('cantidadJoya').value;
+            var materialJoya = document.getElementById('materialJoya').value;
+            var fechaDeseada = document.getElementById('fechaDeseada').value;
+            var descripcionJoya = document.getElementById('descripcionJoya').value;
+            var cuadroTexto = document.getElementById('cuadroTexto').value;
+
+            // Validar que todos los campos estén llenos
+            if (nombres === '' || apellidos === '' || correo === '' || telefono === '' ||
+                fechaNacimiento === '' || provincia === '' || distrito === '' || direccion === '' ||
+                tipoJoya === '' || cantidadJoya === '' || materialJoya === '' || fechaDeseada === '' || descripcionJoya === '') {
+                alert('Todos los campos son obligatorios. Por favor, completa el formulario.');
+                return false;
+            }
+
+            // Validar que el campo cuadroTexto sea numérico
+            if (!validarCampoNumerico(cuadroTexto)) {
+                alert('El campo "Ingrese dato..." debe contener un valor numérico.');
+                return false;
+            }
+
+            // Validar el formato del correo
+            if (!validarFormatoCorreo(correo)) {
+                alert('El formato del correo electrónico no es válido.');
+                return false;
+            }
+
+            // Validar el formato del teléfono
+            if (!validarFormatoTelefono(telefono)) {
+                alert('El formato del teléfono no es válido. Debe empezar con 9 y tener 9 dígitos.');
+                return false;
+            }
+
+            // Validar que la cantidad de joyas sea mayor o igual a 1
+            if (parseInt(cantidadJoya) < 1) {
+                alert('La cantidad de joyas debe ser mayor o igual a 1.');
+                return false;
+            }
+
+            // Si todas las validaciones pasan, el formulario es válido
+            alert('Formulario válido. ¡Gracias por tu solicitud!');
+            return true;
+        }
+
+        // Función para validar el formato del correo
+        function validarFormatoCorreo(correo) {
+            return correo.includes('@') && correo.includes('.');
+        }
+
+        function validarCampoNumerico(valor) {
+            return !isNaN(parseFloat(valor)) && isFinite(valor);
+        }
+
+        // Función para validar el formato del teléfono
+        function validarFormatoTelefono(telefono) {
+            return /^\d{9}$/.test(telefono) && telefono.startsWith('9');
+        }
+    </script>
+
+    <!-- fin del script para guardar en la base de datos -->
+
+
+    <footer class="pies">
+        <div class="footer-content">
+            <div class="logotipo-footer">
+                <a class="logotipo" href="index.html">Carito</a>
+            </div>
+            <div class="derecho-reservado">
+                Todos los derechos reservados ©
+            </div>
+        </div>
+        <div class="grupo">
+            Grupo 03
+        </div>
+    </footer>
+    <script src="js/personaliz.js"></script>
+</body>
+
+</html>
